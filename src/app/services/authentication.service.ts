@@ -9,46 +9,46 @@ import { UserService } from './user.service';
 export class AuthenticationService {
 
   Base64
+  isLogged: boolean = false;
 
   constructor(
 
     public UsersLocalService: UsersLocalService,
     public UserService: UserService,
-    public CookieService: CookieService
+    public cookieService: CookieService
     ) {
     this.initBase64();
   }
 
-  Login(username, password, callback) {
-
-    /* Dummy authentication for testing, uses $timeout to simulate api call
-
-    ----------------------------------------------*/
-    setTimeout(() => {
-      var response;
-      this.UsersLocalService.GetByUsername(username).then(function (user) {
-          if (user !== null && user.password === password) {
-            response = { success: true };
-          } else {
-            response = { success: false, message: 'Username or password is incorrect' };
-          }
-          callback(response);
-        });
-    }, 1000);
-
+  Login(userName, password) {
+    return new Promise((resolve) => {
+    let response;
+      setTimeout(() => {
+        let user = this.UsersLocalService.GetByUsername(userName)
+        if (user !== null && user.password === password) {
+          response = { success: true };
+          this.isLogged = true;
+        } else {
+          response = { success: false, message: 'username or password is incorrect' };
+          this.isLogged = false;
+        }
+        resolve(response);
+      }, 1000);
+    })
   }
 
-  SetCredentials(username, password) {
-    this.UserService.setUserData(username, this.Base64.encode(username + ':' + password));
+  SetCredentials(userName, password) {
+    this.UserService.setUserData(userName, this.Base64.encode(userName + ':' + password));
     // store user details in globals cookie that keeps user logged in for 1 week (or until they logout)
     var cookieExp = new Date();
     cookieExp.setDate(cookieExp.getDate() + 7);
-    this.CookieService.set('globals', this.UserService.getUserData().toString(), { expires: cookieExp });
+    this.cookieService.set('globals', JSON.stringify(this.UserService.getUserData()), { expires: cookieExp });
   }
 
   ClearCredentials() {
     this.UserService.removeUserData();
-    this.CookieService.delete('globals');
+    this.cookieService.delete('globals');
+    this.isLogged = false;
   }
 
   initBase64(){

@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ShipsComponent } from './pages/ships/ships.component';
-
+import { AuthGuard } from './guards/authGuard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/ships', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'ships', component: ShipsComponent }
+  { path: 'ships', component: ShipsComponent,  canActivate: [AuthGuard]},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

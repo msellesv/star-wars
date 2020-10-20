@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
+import { CurrentUser } from '../models/currentUser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  currentUser: {
-    username: string,
-    authdata: string
-  }
+  currentUser: CurrentUser; 
 
   constructor() {
     this.removeUserData();
   }
 
-  setUserData(username, authdata){
-    this.currentUser.username = username;
-    this.currentUser.authdata = authdata;
+  setUserData(username, authData){
+    this.currentUser = new CurrentUser();
+    this.currentUser.setUsername(username);
+    this.currentUser.setAuthData(authData);
   }
 
-  getUserData(){
+  getUserData():CurrentUser{
     return this.currentUser;
   }
 
   removeUserData(){
-    this.currentUser.username = null;
-    this.currentUser.authdata = null;
+    this.currentUser = null
   }
 
 }

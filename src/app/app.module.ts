@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// guards
+import { AuthGuard } from './guards/authGuard';
 
 // services
 import { AuthenticationService } from './services/authentication.service';
@@ -32,13 +36,16 @@ import { StarshipComponent } from './components/starship/starship.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthenticationService,
     ShipsService,
     UsersLocalService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
