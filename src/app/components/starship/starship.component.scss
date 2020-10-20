@@ -1,0 +1,23 @@
+.panel-ship{
+    width: 100%;
+    padding-top: 60%; /* Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+.name-ship{
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    text-align: center;
+    font-size: 21px;
+    color: #ffffff;
+    width: 100%;
+    text-shadow: 0px 0px 12px #464646;
+}
+
+.col-4{
+    padding:none!important;
+}

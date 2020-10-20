@@ -11,6 +11,7 @@ export class ShipsComponent implements OnInit {
   error = undefined;
   lastResponse:any;
   starShipList = [];
+  endedList: boolean = false;
 
   constructor(public ShipsService:ShipsService) { }
 
@@ -22,17 +23,19 @@ export class ShipsComponent implements OnInit {
   }
 
   fetchNext()  {
-    
-    var url = this.lastResponse ? this.lastResponse.next : null;
+    if(!this.endedList){
+      var url = this.lastResponse ? this.lastResponse.next : null;
 
-    this.ShipsService.GetStarships(url).then((data:any) => {
-      this.starShipList = this.starShipList.concat(data.results);    
-      this.lastResponse = data;
-    }).catch(function () {
-      this.error = true;
-    })
+      this.ShipsService.GetStarships(url).then((data:any) => {
+
+        this.starShipList = this.starShipList.concat(data.results);    
+        this.lastResponse = data;
+        if(this.lastResponse.next == null){
+          this.endedList = true;
+        }
+      }).catch(function () {
+        this.error = true;
+      })
+    }
   }
-
-
-
 }

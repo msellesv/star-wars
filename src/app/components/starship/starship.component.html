@@ -1,8 +1,5 @@
 <div class="panel panel-default ship">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{starShip.name}}</h3>
-    </div>
-    <div class="panel-body">
-        <img [src]="imageUrl">
+    <div class="panel-ship" [ngStyle]="{'background-image': 'url('+imageUrl+')'}">
+        <h3 class="name-ship">{{starShip.name}}</h3>
     </div>
 </div>
