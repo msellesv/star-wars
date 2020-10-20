@@ -19,8 +19,7 @@ export class ShipsService {
       }
       return this.http.get(url,{ headers: { 'Authorization': 'none'  }}).subscribe( (res:any) => 
         { 
-          let results = res.results;
-          resolve(results);
+          resolve(res);
         },
           msg => {
           reject(msg);
