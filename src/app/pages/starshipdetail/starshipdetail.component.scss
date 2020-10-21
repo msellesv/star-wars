@@ -6,6 +6,14 @@
     background-repeat: no-repeat;
 }
 
+.image-ship p {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+  }
+
 p {
     margin-bottom: 0rem;
 }

@@ -1,5 +1,6 @@
 <div class="panel panel-default ship">
-    <div class="panel-ship" (click)="goToShipDetailPage()" [ngStyle]="{'background-image': 'url('+imageUrl+')'}">
+    <div class="panel-ship" (click)="goToShipDetailPage()" [ngStyle]="{'background-image': 'url('+imageUrl+')', 'color':'back'}">
+        <p>Image not available</p>
         <h3 class="name-ship">{{starShip.name}}</h3>
     </div>
 </div>
