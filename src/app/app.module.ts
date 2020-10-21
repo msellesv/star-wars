@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -25,7 +25,9 @@ import { StarshipdetailComponent } from './pages/starshipdetail/starshipdetail.c
 // components that can be reused
 import { StarshipsListComponent } from './components/starships-list/starships-list.component';
 import { StarshipComponent } from './components/starship/starship.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuRegisteredComponent } from './components/menu-registered/menu-registered.component';
+import { TestComponent } from './pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ShipsComponent,
     StarshipsListComponent,
     StarshipComponent,
-    StarshipdetailComponent
+    StarshipdetailComponent,
+    MenuComponent,
+    MenuRegisteredComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
