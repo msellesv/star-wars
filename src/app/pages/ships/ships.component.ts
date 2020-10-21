@@ -26,7 +26,7 @@ export class ShipsComponent implements OnInit {
     if(!this.endedList){
       var url = this.lastResponse ? this.lastResponse.next : null;
 
-      this.ShipsService.GetStarships(url).then((data:any) => {
+      this.ShipsService.getStarships(url).then((data:any) => {
 
         this.starShipList = this.starShipList.concat(data.results);    
         this.lastResponse = data;

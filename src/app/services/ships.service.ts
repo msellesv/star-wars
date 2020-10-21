@@ -8,14 +8,12 @@ export class ShipsService {
 
   constructor(public http:HttpClient) {}
 
-  GetStarships(url) {
+  getStarships(url) {
 
     return new Promise((resolve, reject) => {
-
       if (!url) {
           url  ='https://swapi.dev/api/starships/'
       } else {
-          console.log(url)
           url = url.replace('http', 'https');
       }
       return this.http.get(url,{ headers: { 'Authorization': 'none'  }}).subscribe( (res:any) => 
@@ -27,7 +25,21 @@ export class ShipsService {
         }
       )
     })
-        
+  }
+
+
+  getStarship(id){
+    return new Promise((resolve, reject) => {
+      let url  = 'https://swapi.dev/api/starships/' + id + '/';
+      return this.http.get(url,{ headers: { 'Authorization': 'none'  }}).subscribe( (res:any) => 
+        { 
+          resolve(res);
+        },
+          msg => {
+          reject(msg);
+        }
+      )
+    })
   }
 
    

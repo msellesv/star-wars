@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ShipsComponent } from './pages/ships/ships.component';
+import { StarshipdetailComponent } from './pages/starshipdetail/starshipdetail.component';
 
 // components that can be reused
 import { StarshipsListComponent } from './components/starships-list/starships-list.component';
@@ -33,7 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterComponent,
     ShipsComponent,
     StarshipsListComponent,
-    StarshipComponent
+    StarshipComponent,
+    StarshipdetailComponent
   ],
   imports: [
     CommonModule,

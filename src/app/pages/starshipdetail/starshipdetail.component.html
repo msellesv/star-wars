@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Ship detail</h1>
+    <div class="row">
+        <div [ngStyle]="{'background-image': 'url('+imageUrl+')'}" class="image-ship col-6"></div>
+        <div class="features-ship" class="col-6">
+            <p *ngFor="let feature of starshipFeatures">{{feature[0]}}: <b>{{feature[1]}}</b></p>
+        </div>
+    </div>
+</div>

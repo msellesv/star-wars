@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'starship',
@@ -11,7 +12,7 @@ export class StarshipComponent implements OnInit {
 
   imageUrl:string;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.getStarshipId();
@@ -23,6 +24,10 @@ export class StarshipComponent implements OnInit {
         return item !== "";
     }).slice(-1)[0];
     this.imageUrl="https://starwars-visualguide.com/assets/img/starships/" + this.starShip.shipId + ".jpg";
+  }
+
+  goToShipDetailPage(){
+    this.router.navigate(['/starship/'+this.starShip.shipId]);
   }
 
 }
