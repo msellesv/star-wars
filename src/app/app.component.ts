@@ -17,13 +17,13 @@ export class AppComponent implements OnInit {
     public authService: AuthenticationService){}
 
   ngOnInit(){
-    
-    let globals:any = this.cookieService.get('globals') || {};
-    let parseGlobals = JSON.parse(globals);
-
-    if(parseGlobals){
-      this.userService.setUserData(parseGlobals.user,parseGlobals.userdata);
-      this.authService.isLogged = true;
+    let globals:any = this.cookieService.get('globals');
+    if(globals){
+      let parseGlobals = JSON.parse(globals);
+      if(parseGlobals){
+        this.userService.setUserData(parseGlobals.user,parseGlobals.userdata);
+        this.authService.isLogged = true;
+      }
     }
   }
 
