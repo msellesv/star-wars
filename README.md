@@ -1,4 +1,13 @@
-# StarWars
+## TODO:
+
+- Implement caché: 
+I did not find a solution to implement cache for API protection using only the classes provided by the Angular framework.
+
+- Unit tests: 
+I only know the use of Jasmine / Karma for testing.
+
+
+# StarWarsSipList
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 
