@@ -1,0 +1,6 @@
+<div class="container">
+    <!-- As a link -->
+    <div class="col-sm-12">
+        <div [ngClass]="{ 'alert': fls.flash, 'alert-success': fls.flash.type === 'success', 'alert-danger': fls.flash.type === 'error' }" *ngIf="fls.flash">{{fls.flash.message}}</div>
+    </div>
+</div>

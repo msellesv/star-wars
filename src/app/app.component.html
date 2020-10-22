@@ -1,3 +1,4 @@
 <menu-visitor *ngIf="!authService.isLogged"></menu-visitor>
 <menu-registered *ngIf="authService.isLogged"></menu-registered>
+<flash></flash>
 <router-outlet></router-outlet>

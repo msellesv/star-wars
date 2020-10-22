@@ -28,6 +28,7 @@ import { StarshipComponent } from './components/starship/starship.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuRegisteredComponent } from './components/menu-registered/menu-registered.component';
 import { TestComponent } from './pages/test/test.component';
+import { FlashComponent } from './components/flash/flash.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TestComponent } from './pages/test/test.component';
     StarshipdetailComponent,
     MenuComponent,
     MenuRegisteredComponent,
-    TestComponent
+    TestComponent,
+    FlashComponent
   ],
   imports: [
     CommonModule,
